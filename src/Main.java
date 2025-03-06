@@ -18,7 +18,7 @@ public class Main {
         System.out.printf("Students of %s faculty:\n", fac);
         boolean foundFac = false;
         for (Student student : students) {
-            if (student.getFaculty() == (fac)) {
+            if (student.getFaculty().equalsIgnoreCase(fac)) {
                 System.out.println(student.getName());
                 foundFac = true;
             }
