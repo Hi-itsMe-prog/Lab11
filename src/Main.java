@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Student[] students = new Student[3];
-        students[0] = new Student("Alice", 18, "2023", "Computer Science", "Engineering", "123-456-7890");
-        students[1] = new Student("Bob", 19, "2022", "Mathematics", "Science", "987-654-3210");
-        students[2] = new Student("Charlie", 17,"2023", "Physics", "Engineering",  "555-123-4567");
+        students[0] = new Student("Alice", 18, 2023, "Computer Science", "Engineering", "123-456-7890");
+        students[1] = new Student("Bob", 19, 2022, "Mathematics", "Science", "987-654-3210");
+        students[2] = new Student("Charlie", 17,2023, "Physics", "Engineering",  "555-123-4567");
 
         System.out.println("Names and age of all students:");
         for (Student student : students) {
@@ -18,7 +18,7 @@ public class Main {
         System.out.printf("Students of %s faculty:\n", fac);
         boolean foundFac = false;
         for (Student student : students) {
-            if (student.getFaculty().equalsIgnoreCase(fac)) {
+            if (student.getFaculty() == (fac)) {
                 System.out.println(student.getName());
                 foundFac = true;
             }
@@ -32,7 +32,7 @@ public class Main {
         System.out.printf("Students who entered after %d:\n",Year);
         boolean fYear = false;
         for (Student student : students) {
-            int a = Integer.parseInt(student.getEnterDate());
+            int a = student.getEnterDate();
             if (a > Year) {
                 System.out.println(student.getName());
                 fYear = true;
@@ -69,18 +69,18 @@ class Person {
 }
 
 class Student extends Person {
-    private String enterDate;
+    private int enterDate;
     private String course;
     private String faculty;
 
-    public Student(String name, int age, String enterDate, String course, String faculty, String phone) {
+    public Student(String name, int age, int enterDate, String course, String faculty, String phone) {
         super(age, name, phone);
         this.enterDate = enterDate;
         this.course = course;
         this.faculty = faculty;
     }
 
-    public String getEnterDate() {
+    public int getEnterDate() {
         return this.enterDate;
     }
 
