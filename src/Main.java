@@ -22,6 +22,7 @@ public class Main {
                 System.out.println(student.getName());
                 foundFac = true;
             }
+
         }
         if (!foundFac) {
             System.out.println("No students found for this faculty.");
